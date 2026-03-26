@@ -1,4 +1,6 @@
 import "./globals.css";
+import ReduxProvider from "@/components/ReduxProvider";
+import AuthGuard from "@/components/AuthGuard";
 
 export const metadata = {
   title: "Connect Fast — AI Chat",
@@ -15,7 +17,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="bg-void text-ghost font-sans antialiased relative">
-        {children}
+        <ReduxProvider>
+          <AuthGuard>{children}</AuthGuard>
+        </ReduxProvider>
       </body>
     </html>
   );
